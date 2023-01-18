@@ -1,0 +1,9 @@
+.element__container {
+  width: 282px;
+  height: 79px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}

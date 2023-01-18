@@ -1,0 +1,35 @@
+.popup__close {
+  position: absolute;
+  top: calc(((100% - 330px) / 2) - (32px + 8px));
+  left: calc(((100% - 430px) / 2) + (430px + 8px));
+  margin: 0;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  background-image: url(../../../images/close_icon.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: width 0.2s;
+  transition: height 0.2s;
+  transition: top 0.2s;
+  transition: left 0.2s;
+  transition: opacity 0.4s;
+}
+
+.popup__close:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 520px) {
+  .popup__close {
+    top: calc(((100% - 322px) / 2) - (20px + 16px));
+    left: calc(((100% - 282px) / 2) + (282px - 20px));
+    width: 20px;
+    height: 20px;
+  }
+} 
