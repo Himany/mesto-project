@@ -1,10 +1,8 @@
 .popup__container {
-  position: absolute;
+  position: relative;
   background-color: #ffffff;
   width: 430px;
   height: 330px;
-  top: calc((100% - 330px) / 2);
-  left: calc((100% - 430px) / 2);
   border-radius: 10px;
   z-index: 2;
   transition: width 0.2s;
@@ -15,7 +13,5 @@
   .popup__container {
     width: 282px;
     height: 322px;
-    top: calc((100% - 322px) / 2);
-    left: calc((100% - 282px) / 2);
   }
 } 
