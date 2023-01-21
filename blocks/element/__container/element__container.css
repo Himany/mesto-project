@@ -1,6 +1,6 @@
 .element__container {
+  margin: 20px 0 26px 0;
   width: 282px;
-  height: 79px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

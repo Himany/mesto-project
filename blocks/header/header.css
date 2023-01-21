@@ -2,10 +2,17 @@
   padding-top: 45px;
   margin: 0 auto;
   max-width: min(100%,880px);
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
   transition: padding 0.5s;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 1024px) {
+  .header {
+    max-width: min(100%,581px);
+  }
+} 
+
+@media screen and (max-width: 768px) {
   .header {
     padding-top: 28px;
   }

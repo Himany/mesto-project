@@ -12,6 +12,7 @@
   background-image: url(../../../images/add.svg);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 22px 22px;
   box-sizing: border-box;
   transition: opacity 0.4s;
 }
@@ -20,9 +21,10 @@
   opacity: 0.6;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 768px) {
   .profile__add {
     margin: 36px auto 0 auto;
     width: 282px;
+    background-size: 16px 16px;
   }
 } 

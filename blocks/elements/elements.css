@@ -7,3 +7,16 @@
   grid-gap: 17px;
   justify-content: center;
 }
+
+@media screen and (max-width: 1024px) {
+  .elements {
+    max-width: min(100%,581px);
+  }
+} 
+
+@media screen and (max-width: 768px) {
+  .elements {
+    max-width: min(100%,282px);
+    padding-top: 36px;
+  }
+} 

@@ -1,13 +1,13 @@
 .popup__item {
   border: 0;
   width: 358px;
-  height: 27px;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   background-color: transparent;
   font-size: 14px;
   font-family: inherit;
   transition: width 0.3s;
+  transition: margin 0.3s;
 }
 
 .popup__item::placeholder {
@@ -19,8 +19,23 @@
   color: #000000;
 }
 
+.popup__item[name="heading"] {
+  margin: 54px 36px 0 36px;
+}
+
+.popup__item[name="subheading"] {
+  margin: 30px 36px 0 36px;
+}
+
 @media screen and (max-width: 520px) {
   .popup__item {
     width: 238px;
+  }
+  .popup__item[name="heading"] {
+    margin: 75px 22px 0 22px;
+  }
+  
+  .popup__item[name="subheading"] {
+    margin: 30px 22px 0 22px;
   }
 } 

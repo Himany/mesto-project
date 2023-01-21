@@ -2,15 +2,19 @@
   padding-top: 40px;
   margin: 0 auto;
   max-width: min(100%,880px);
-  min-height: 120px;
   display: flex;
   align-items: center;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 1024px) {
+  .profile {
+    max-width: min(100%,581px);
+  }
+} 
+
+@media screen and (max-width: 768px) {
   .profile {
     padding-top: 42px;
-    display: flex;
     flex-direction: column;
   }
 } 
