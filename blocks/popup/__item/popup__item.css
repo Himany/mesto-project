@@ -4,9 +4,13 @@
   box-sizing: border-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   background-color: transparent;
-  font-size: 14px;
-  font-family: inherit;
   outline: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
   transition: width 0.3s;
   transition: margin 0.3s;
 }
@@ -17,7 +21,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: #000000;
+  color: #C4C4C4;
 }
 
 .popup__item[name="heading"] {
