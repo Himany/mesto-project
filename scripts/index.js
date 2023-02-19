@@ -1,10 +1,10 @@
 //function
-function openPopup(selector) {
-  selector.classList.add('popup_opened');
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
 }
 
-function closePopup(selector) {
-  selector.classList.remove('popup_opened');
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 }
 
 function openProfilePopup() {
@@ -60,12 +60,15 @@ function addPost(name, link) {
 //create init posts
 initialCards.forEach((item) => {addPost(item.name, item.link)});
 
-//listen click open/close
+//listen click open
 popupOpenButtonProfile.addEventListener('click', openProfilePopup);
 popupOpenButtonAddMesto.addEventListener('click', () => {openPopup(popupAddMesto)});
-popupCloseButtonProfile.addEventListener('click', () => {closePopup(popupProfile)});
-popupCloseButtonAddMesto.addEventListener('click', () => {closePopup(popupAddMesto)});
-popupCloseButtonMesto.addEventListener('click', () => {closePopup(popupMesto)});
+
+//listen click close
+popupcloseButtons.forEach((button) => {
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
+});
 
 //listen submit form
 popupFormProfile.addEventListener('submit', handleProfileForm);

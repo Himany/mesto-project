@@ -13,11 +13,6 @@ const inputAddMestoLink = document.querySelector('.popup__item_type_addmesto-lin
 const popupFormProfile = document.querySelector('.popup__form_type_profile');
 const popupFormAddMesto = document.querySelector('.popup__form_type_add-mesto');
 
-//popup close
-const popupCloseButtonProfile = document.querySelector('.popup__close_type_profile');
-const popupCloseButtonAddMesto = document.querySelector('.popup__close_type_add-mesto');
-const popupCloseButtonMesto = document.querySelector('.popup__close_type_mesto');
-
 //button
 const popupOpenButtonProfile = document.querySelector('.profile__edit-but');
 const popupOpenButtonAddMesto = document.querySelector('.profile__add');
@@ -33,6 +28,9 @@ const profileSubTitle = document.querySelector('.profile__subtitle');
 //template
 const templatePost = document.querySelector('#element').content;
 const elementPost = templatePost.querySelector('.element');
+
+//popup close buttons
+const popupcloseButtons = document.querySelectorAll('.popup__close');
 
 //other element
 const elementsContainer = document.querySelector('.elements');
