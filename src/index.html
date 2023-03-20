@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+  <title>Mesto</title>
+</head>
+<body class="page">
+  <header class="header">
+	
+    <img class="header__logo" src="<%=require('./images/main_logo.svg')%>" alt="Логотип - Mesto">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар пользователя">
+      <div class="profile__info">
+        <div class="profile__info-sub">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__edit-but" type="button" aria-label="Редактировать"></button>
+        </div>
+        <p class="profile__subtitle">Исследователь океана</p>
+      </div>
+      <button class="profile__add" type="button" aria-label="Добавить"></button>
+    </section>
+    <section class="elements">
+      <template id="element">
+        <article class="element">
+          <img class="element__img" src="<%=require('./images/karachaevsk.jpg')%>" alt="Карачаевск">
+          <button class="element__trash" type="button" aria-label="Удалить"></button>
+          <div class="element__container">
+            <h2 class="element__title">Карачаевск</h2>
+            <button class="element__like" type="button" aria-label="Нравится"></button>
+          </div>
+        </article>
+      </template>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__text">© 2023 Mesto Russia</p>
+  </footer>
+  <div class="popup popup_type_profile">
+    <div class="popup__container">
+      <form class="popup__form popup__form_type_profile" name="profile_edit">
+        <button class="popup__close" type="button"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <div class="popup__item-container">
+          <input type="text" name="heading" class="popup__item popup__item_type_profile-name" placeholder="Жак-Ив Кусто" minlength=2 maxlength=40 pattern="^[a-zA-Zа-яёА-ЯЁ\-\s]+$" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
+          <span class="popup__item-error">Вы пропустили это поле.</span>
+        </div>
+        <div class="popup__item-container">
+          <input type="text" name="subheading" class="popup__item popup__item_type_profile-capture" placeholder="Исследователь океана" minlength=2 maxlength=200 pattern="^[a-zA-Zа-яёА-ЯЁ\-\s]+$" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
+          <span class="popup__item-error">Вы пропустили это поле.</span>
+        </div>
+        <button class="popup__save" type="submit" aria-label="Сохранить">Сохранить</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_type_add-mesto">
+    <div class="popup__container">
+      <form class="popup__form popup__form_type_add-mesto" name="profile_edit">
+        <button class="popup__close" type="button"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <div class="popup__item-container">
+          <input type="text" name="heading" class="popup__item popup__item_type_addmesto-name" placeholder="Название" minlength=2 maxlength=30 pattern="^[a-zA-Zа-яёА-ЯЁ\-\s]+$" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required>
+          <span class="popup__item-error">Вы пропустили это поле.</span>
+        </div>
+        <div class="popup__item-container">
+          <input type="url" name="subheading" class="popup__item popup__item_type_addmesto-link" placeholder="Ссылка на картинку" required>
+          <span class="popup__item-error">Вы пропустили это поле.</span>
+        </div>
+        <button class="popup__save" type="submit" aria-label="Сохранить">Сохранить</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_type_mesto">
+    <div class="popup__container-photo">
+        <button class="popup__close" type="button"></button>
+        <img class="popup__img" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="Гора Эльбрус">
+        <p class="popup__capture">Тестовая подпись</p>
+    </div>
+  </div>
+</body>
+</html>

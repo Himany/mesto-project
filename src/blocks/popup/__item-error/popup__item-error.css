@@ -1,0 +1,20 @@
+.popup__item-error {
+  position: absolute;
+  width: 358px;
+  top: calc(100% + 5px);
+  left: 36px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  opacity: 0;
+}
+
+@media screen and (max-width: 520px) {
+  .popup__item-error {
+    width: 238px;
+    left: 22px;
+  }
+} 
