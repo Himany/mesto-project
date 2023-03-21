@@ -1,18 +1,65 @@
 import '../pages/index.css';
 import { 
-  initialCards, 
+  inputProfileName,
+  inputProfileCapture,
+  profileTitle,
+  profileSubTitle,
+  popupProfile,
   validationOption,
+  popupMestoImg,
+  popupMestoCapture,
+  popupMesto,
+  popupAddMesto,
+  inputAddMestoName,
+  inputAddMestoLink,
+  popupFormAddMesto,
+  initialCards,
   popupOpenButtonProfile,
   popupOpenButtonAddMesto,
   popupcloseButtons,
   popupFormProfile,
-  popupFormAddMesto,
-  popups,
-  popupAddMesto
+  popups
 } from "./constans.js";
-import { enableValidation } from './validate.js';
+import { enableValidation, toggleButtonState } from './validate.js';
 import { addPost } from './utils.js';
-import { openPopup, closePopup, openProfilePopup, handleProfileForm, handleAddMestoForm, clickOverlayHandler } from './modal.js';
+import { openPopup, closePopup, resetPopup, clickOverlayHandler } from './modal.js';
+
+/*
+  Function
+*/
+function openProfilePopup() {
+  inputProfileName.value = profileTitle.textContent;
+  inputProfileCapture.value = profileSubTitle.textContent;
+
+  //Отдельная проверка из-за заполнения инпутов
+  const inputList = Array.from(popupProfile.querySelectorAll(validationOption.inputSelector));
+  const buttonElement = popupProfile.querySelector(validationOption.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, validationOption);
+
+  openPopup(popupProfile);
+}
+
+function openMestoPopup(evt) {
+  popupMestoImg.src = evt.target.src;
+  popupMestoImg.alt = evt.target.alt;
+  popupMestoCapture.textContent = evt.target.alt;
+  openPopup(popupMesto);
+}
+
+function handleProfileForm(evt) {
+  evt.preventDefault();
+  profileTitle.textContent = inputProfileName.value;
+  profileSubTitle.textContent = inputProfileCapture.value;
+  closePopup(popupProfile);
+}
+
+function handleAddMestoForm(evt) {
+  evt.preventDefault();
+  closePopup(popupAddMesto);
+  addPost(inputAddMestoName.value, inputAddMestoLink.value);
+  resetPopup(popupFormAddMesto);
+}
+
 
 //Create inital posts
 initialCards.forEach((item) => {addPost(item.name, item.link)});
@@ -44,3 +91,5 @@ Array.from(popups).forEach((popup) => {
 
 //Starting validation
 enableValidation(validationOption); 
+
+export { openMestoPopup };

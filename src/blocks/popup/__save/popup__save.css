@@ -20,7 +20,7 @@
   transition: opacity 0.4s;
 }
 
-.popup__save:hover {
+.popup__save:hover:enabled {
   opacity: 0.8;
 }
 

@@ -29,13 +29,21 @@ function checkInputValidity(inputElement, options) {
 
 function toggleButtonState(inputList, buttonElement, options) {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(options.inactiveButtonClass);
-    buttonElement.disabled = true;
+    disableButton(buttonElement, options);
   } else {
-    buttonElement.classList.remove(options.inactiveButtonClass);
-    buttonElement.disabled = false;
+    enableButton(buttonElement, options);
   }
 };
+
+function disableButton(button, options) {
+  button.classList.add(options.inactiveButtonClass);
+  button.disabled = true;
+}
+
+function enableButton(button, options) {
+  button.classList.remove(options.inactiveButtonClass);
+  button.disabled = false;
+}
 
 const showInputError = (inputElement, errorMessage, options) => {
   const errorElement = inputElement.parentNode.querySelector(options.errorClass);
@@ -57,4 +65,4 @@ function hasInvalidInput(inputList) {
   })
 };
 
-export {enableValidation, toggleButtonState};
+export {enableValidation, toggleButtonState, disableButton};

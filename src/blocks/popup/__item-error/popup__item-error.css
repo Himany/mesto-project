@@ -16,5 +16,6 @@
   .popup__item-error {
     width: 238px;
     left: 22px;
+    top: 100%;
   }
 } 

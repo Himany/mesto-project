@@ -1,26 +1,5 @@
-import { 
-  inputProfileName, 
-  inputProfileCapture, 
-  profileTitle, 
-  profileSubTitle, 
-  validationOption, 
-  popupProfile, 
-  popupMestoImg, 
-  popupMestoCapture, 
-  popupMesto, 
-  popupFormAddMesto, 
-  inputAddMestoName, 
-  inputAddMestoLink, 
-  popupAddMesto, 
-  popupOpenButtonProfile, 
-  popupOpenButtonAddMesto,
-  popupcloseButtons,
-  popupFormProfile,
-  popups
-} from "./constans.js";
-
-import { addPost } from "./utils.js";
-import { toggleButtonState } from "./validate.js";
+import { validationOption } from "./constans.js";
+import { disableButton } from "./validate.js";
 
 /*
   Function
@@ -32,39 +11,12 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', EscKeyDownHandler);
 }
 
-function openProfilePopup() {
-  inputProfileName.value = profileTitle.textContent;
-  inputProfileCapture.value = profileSubTitle.textContent;
-
-  //Отдельная проверка из-за заполнения инпутов
-  const inputList = Array.from(popupProfile.querySelectorAll(validationOption.inputSelector));
-  const buttonElement = popupProfile.querySelector(validationOption.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement, validationOption);
-
-  openPopup(popupProfile);
-}
-
-function openMestoPopup(evt) {
-  popupMestoImg.src = evt.target.src;
-  popupMestoImg.alt = evt.target.alt;
-  popupMestoCapture.textContent = evt.target.alt;
-  openPopup(popupMesto);
-}
-
-function handleProfileForm(evt) {
-  evt.preventDefault();
-  profileTitle.textContent = inputProfileName.value;
-  profileSubTitle.textContent = inputProfileCapture.value;
-  closePopup(popupProfile);
-}
-
-function handleAddMestoForm(evt) {
-  evt.preventDefault();
-  closePopup(popupAddMesto);
-  addPost(inputAddMestoName.value, inputAddMestoLink.value);
-  popupFormAddMesto.reset();
+function resetPopup(popup) {
+  popup.reset();
+  disableButton(popup.querySelector(validationOption.submitButtonSelector), validationOption);
 }
 
 /*
@@ -74,7 +26,6 @@ function EscKeyDownHandler(evt) {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
-    document.removeEventListener('keydown', EscKeyDownHandler);
   }
 }
 
@@ -87,4 +38,4 @@ function clickOverlayHandler(evt) {
   };
 };
 
-export {openPopup, closePopup, openMestoPopup, openProfilePopup, handleProfileForm, handleAddMestoForm, clickOverlayHandler};
+export {openPopup, closePopup, resetPopup, clickOverlayHandler};

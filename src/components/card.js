@@ -1,6 +1,5 @@
 import { elementPost } from "./constans.js";
-import { openMestoPopup } from "./modal.js";
-
+import { openMestoPopup } from "./index.js";
 /*
   Function
 */
