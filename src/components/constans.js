@@ -1,70 +1,55 @@
 //popup window
-const popups = document.querySelectorAll('.popup');
-const popupProfile = document.querySelector('.popup_type_profile');
-const popupAddMesto = document.querySelector('.popup_type_add-mesto');
-const popupMesto = document.querySelector('.popup_type_mesto');
+export const popups = document.querySelectorAll('.popup');
+export const popupProfile = document.querySelector('.popup_type_profile');
+export const popupAddMesto = document.querySelector('.popup_type_add-mesto');
+export const popupMesto = document.querySelector('.popup_type_mesto');
+export const popupDeleteCard = document.querySelector('.popup_type_delete-confirm');
+export const popupUpdateAvatar = document.querySelector('.popup_type_update-avatar');
 
 //popup inputs
-const inputProfileName = document.querySelector('.popup__item_type_profile-name');
-const inputProfileCapture = document.querySelector('.popup__item_type_profile-capture');
-const inputAddMestoName = document.querySelector('.popup__item_type_addmesto-name');
-const inputAddMestoLink = document.querySelector('.popup__item_type_addmesto-link');
+export const inputProfileName = document.querySelector('.popup__item_type_profile-name');
+export const inputProfileCapture = document.querySelector('.popup__item_type_profile-capture');
+export const inputAddMestoName = document.querySelector('.popup__item_type_addmesto-name');
+export const inputAddMestoLink = document.querySelector('.popup__item_type_addmesto-link');
+export const inputUpdateAvatarLink = document.querySelector('.popup__item_type_update-avatar');
 
 //popup form
-const popupFormProfile = document.querySelector('.popup__form_type_profile');
-const popupFormAddMesto = document.querySelector('.popup__form_type_add-mesto');
+export const popupFormProfile = document.querySelector('.popup__form_type_profile');
+export const popupFormAddMesto = document.querySelector('.popup__form_type_add-mesto');
+export const popupFormDeleteCard = document.querySelector('.popup__form_type_delete-confirm');
+export const popupFormUpdateAvatar = document.querySelector('.popup__form_type_update-avatar');
 
 //button
-const popupOpenButtonProfile = document.querySelector('.profile__edit-but');
-const popupOpenButtonAddMesto = document.querySelector('.profile__add');
+export const popupOpenButtonProfile = document.querySelector('.profile__edit-but');
+export const popupOpenButtonAddMesto = document.querySelector('.profile__add');
+export const popupOpenButtonUpdateAvatar = document.querySelector('.profile__avatar-edit-button');
 
 //Mesto
-const popupMestoImg = document.querySelector('.popup__img');
-const popupMestoCapture = document.querySelector('.popup__capture');
+export const popupMestoImg = document.querySelector('.popup__img');
+export const popupMestoCapture = document.querySelector('.popup__capture');
 
 //profile
-const profileTitle = document.querySelector('.profile__title');
-const profileSubTitle = document.querySelector('.profile__subtitle');
+export const profileAvatar = document.querySelector('.profile__avatar');
+export const profileTitle = document.querySelector('.profile__title');
+export const profileSubTitle = document.querySelector('.profile__subtitle');
 
 //template
-const templatePost = document.querySelector('#element').content;
-const elementPost = templatePost.querySelector('.element');
+export const templatePost = document.querySelector('#element').content;
+export const elementPost = templatePost.querySelector('.element');
+
+//popup sumbit button
+export const popupButtonEditProfile = document.querySelector('.popup__save_type_profile');
+export const popupButtonAddMesto = document.querySelector('.popup__save_type_add-mesto');
+export const popupButtonDeleteCard = document.querySelector('.popup__save_type_delete-confirm');
+export const popupButtonUpdateAvatar = document.querySelector('.popup__save_type_update-avatar');
 
 //popup close buttons
-const popupcloseButtons = document.querySelectorAll('.popup__close');
+export const popupcloseButtons = document.querySelectorAll('.popup__close');
 
 //other element
-const elementsContainer = document.querySelector('.elements');
+export const elementsContainer = document.querySelector('.elements');
 
-//cards init array
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
-const validationOption = {
+export const validationOption = {
   formSelector: '.popup__form',
   inputSelector: '.popup__item',
   submitButtonSelector: '.popup__save',
@@ -74,5 +59,3 @@ const validationOption = {
   errorClass: '.popup__item-error',
   errorClassActive: 'popup__item-error_active'
 }; 
-
-export {popups, popupProfile, popupAddMesto, popupMesto, inputProfileName, inputProfileCapture, inputAddMestoName, inputAddMestoLink, popupFormProfile, popupFormAddMesto, popupOpenButtonProfile, popupOpenButtonAddMesto, popupMestoImg, popupMestoCapture, profileTitle, profileSubTitle, elementPost, popupcloseButtons, elementsContainer, initialCards, validationOption};

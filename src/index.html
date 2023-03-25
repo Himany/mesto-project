@@ -7,16 +7,18 @@
 </head>
 <body class="page">
   <header class="header">
-	
     <img class="header__logo" src="<%=require('./images/main_logo.svg')%>" alt="Логотип - Mesto">
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар пользователя">
+      <div class="profile__avatar-container">
+        <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар пользователя">
+        <button class="profile__avatar-edit-button" type="button" aria-label="Редактировать аватар"></button>
+      </div>
       <div class="profile__info">
         <div class="profile__info-sub">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
-          <button class="profile__edit-but" type="button" aria-label="Редактировать"></button>
+          <button class="profile__edit-but" type="button" aria-label="Редактировать профиль"></button>
         </div>
         <p class="profile__subtitle">Исследователь океана</p>
       </div>
@@ -29,7 +31,10 @@
           <button class="element__trash" type="button" aria-label="Удалить"></button>
           <div class="element__container">
             <h2 class="element__title">Карачаевск</h2>
-            <button class="element__like" type="button" aria-label="Нравится"></button>
+            <div class="element__like-container">
+              <button class="element__like" type="button" aria-label="Нравится"></button>
+              <p class="element__like-count">0</p>
+            </div>
           </div>
         </article>
       </template>
@@ -51,13 +56,13 @@
           <input type="text" name="subheading" class="popup__item popup__item_type_profile-capture" placeholder="Исследователь океана" minlength=2 maxlength=200 pattern="^[a-zA-Zа-яёА-ЯЁ\-\s]+$" data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы" required novalidate>
           <span class="popup__item-error">Вы пропустили это поле.</span>
         </div>
-        <button class="popup__save" type="submit" aria-label="Сохранить">Сохранить</button>
+        <button class="popup__save popup__save_type_profile" type="submit" aria-label="Сохранить">Сохранить</button>
       </form>
     </div>
   </div>
   <div class="popup popup_type_add-mesto">
     <div class="popup__container">
-      <form class="popup__form popup__form_type_add-mesto" name="profile_edit">
+      <form class="popup__form popup__form_type_add-mesto" name="add-mesto">
         <button class="popup__close" type="button"></button>
         <h2 class="popup__title">Новое место</h2>
         <div class="popup__item-container">
@@ -68,15 +73,37 @@
           <input type="url" name="subheading" class="popup__item popup__item_type_addmesto-link" placeholder="Ссылка на картинку" required novalidate>
           <span class="popup__item-error">Вы пропустили это поле.</span>
         </div>
-        <button class="popup__save" type="submit" aria-label="Сохранить">Сохранить</button>
+        <button class="popup__save popup__save_type_add-mesto" type="submit" aria-label="Сохранить">Сохранить</button>
       </form>
     </div>
   </div>
   <div class="popup popup_type_mesto">
     <div class="popup__container-photo">
         <button class="popup__close" type="button"></button>
-        <img class="popup__img" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg" alt="Гора Эльбрус">
+        <img class="popup__img" src="" alt="Гора Эльбрус">
         <p class="popup__capture">Тестовая подпись</p>
+    </div>
+  </div>
+  <div class="popup popup_type_delete-confirm">
+    <div class="popup__container">
+      <form class="popup__form popup__form_type_delete-confirm" name="delete-confirm">
+        <button class="popup__close" type="button"></button>
+        <h2 class="popup__title">Вы уверены?</h2>
+        <button class="popup__save popup__save_type_delete-confirm" type="submit" aria-label="Вы уверены?">Да</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_type_update-avatar">
+    <div class="popup__container">
+      <form class="popup__form popup__form_type_update-avatar" name="update-avatar">
+        <button class="popup__close" type="button"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <div class="popup__item-container">
+          <input type="url" name="heading" class="popup__item popup__item_type_update-avatar" placeholder="Ссылка на картинку" required novalidate>
+          <span class="popup__item-error">Вы пропустили это поле.</span>
+        </div>
+        <button class="popup__save popup__save_type_update-avatar" type="submit" aria-label="Сохранить">Сохранить</button>
+      </form>
     </div>
   </div>
 </body>
