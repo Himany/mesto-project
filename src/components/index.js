@@ -46,18 +46,18 @@ function openProfilePopup() {
   const buttonElement = popupProfile.querySelector(validationOption.submitButtonSelector);
   toggleButtonState(inputList, buttonElement, validationOption);
 
-  popupButtonEditProfile.textContent = 'Сохранить'; //Сбрасываем текст кнопки
+  popupButtonEditProfile.textContent = 'Сохранить'; //Сбрасываем текст кнопки !!!(Если текст сбрасывать в блоке finally, пользователь не увидит ошибку в тексте кнопки)!!!
   openPopup(popupProfile);
 }
 
 function openAddMestoPopup() {
-  popupButtonAddMesto.textContent = 'Сохранить'; //Сбрасываем текст кнопки
+  popupButtonAddMesto.textContent = 'Сохранить'; //Сбрасываем текст кнопки !!!(Если текст сбрасывать в блоке finally, пользователь не увидит ошибку в тексте кнопки)!!!
   openPopup(popupAddMesto);
 }
 
 export function openPopupDeleteCard(cardId) {
   popupFormDeleteCard.dataset.id = cardId;
-  popupButtonDeleteCard.textContent = 'Да';
+  popupButtonDeleteCard.textContent = 'Да'; //Сбрасываем текст кнопки !!!(Если текст сбрасывать в блоке finally, пользователь не увидит ошибку в тексте кнопки)!!!
   openPopup(popupDeleteCard);
 }
 
@@ -69,7 +69,7 @@ export function openMestoPopup(evt) {
 }
 
 function openUpdateAvatar() {
-  popupButtonUpdateAvatar.textContent = 'Сохранить'; //Сбрасываем текст кнопки
+  popupButtonUpdateAvatar.textContent = 'Сохранить'; //Сбрасываем текст кнопки !!!(Если текст сбрасывать в блоке finally, пользователь не увидит ошибку в тексте кнопки)!!!
   openPopup(popupUpdateAvatar);
 }
 
@@ -85,11 +85,10 @@ function handleProfileForm(evt) {
       editNameProfile(data.name);
       editCaptureProfile(data.about);
       closePopup(popupProfile);
-      popupButtonEditProfile.textContent = 'Сохранить';
     })
     .catch((error) => {
       popupButtonEditProfile.textContent = `Попробовать снова (${error})`;
-    }); 
+    });
 }
 
 function handleAddMestoForm(evt) {
