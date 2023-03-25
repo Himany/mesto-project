@@ -8,7 +8,7 @@ const config = {
     authorization: '9c3089de-d2f6-4f94-8f18-89f9e74580b3'
   },
   headersJson: {
-    authorization: '9c3089de-d2f6-4f94-8f18-89f9e74580b32',
+    authorization: '9c3089de-d2f6-4f94-8f18-89f9e74580b3',
     'Content-Type': 'application/json'
   }
 }
