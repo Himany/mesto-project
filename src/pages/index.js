@@ -4,6 +4,8 @@ import Api from '../components/Api.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
+import Section from '../components/Section.js';
+import FormValidator from '../components/FormValidator';
 
 import { addPost, deletePost } from '../components/utils.js';
 import {
@@ -19,8 +21,9 @@ import {
   profileTitle,
   profileSubTitle,
   inputProfileName,
-  inputProfileCapture
- } from '../components/constans.js';
+  inputProfileCapture,
+  selectorCardContainer
+} from '../components/constans.js';
 
 ////////////////////////////////////////////////////////////////////////////////////
 //submit function///////////////////////////////////////////////////////////////////
@@ -39,7 +42,16 @@ function handleAddMestoForm(evt, popup, data) {
   popup.updateButton('Сохранение...');
   api.addCard(data)
     .then((data) => {
-      //Добавить карточку на страницу функцией addPost
+      cardSection.addItem(
+        addPost(
+          data,
+          api,
+          popupViewImage,
+          userInfo,
+          popupDeletePost
+        ),
+        false
+      );
       popup.close();
     })
     .catch((error) => {
@@ -85,6 +97,17 @@ const popupDeletePost = new PopupWithForm(popuptypeDeleteConfirmSelector, handle
 popupDeletePost.setEventListeners();
 ////////////////////////////////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////////////////////////////////
+//Popup validators//////////////////////////////////////////////////////////////////
+const validatorFormProfile = new FormValidator(validationOption, popupProfile.getForm());
+validatorFormProfile.enableValidation();
+const validatorFormAddMesto = new FormValidator(validationOption, popupAddMesto.getForm());
+validatorFormAddMesto.enableValidation();
+const validatorFormEditAvatar = new FormValidator(validationOption, popupEditAvatar.getForm());
+validatorFormEditAvatar.enableValidation();
+////////////////////////////////////////////////////////////////////////////////////
+
+
 const api = new Api({
   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-22',
   cardsUrl: '/cards',
@@ -92,7 +115,7 @@ const api = new Api({
   profileUrl: '/users/me',
   avatarUrl: '/users/me/avatar',
   authorization: '9c3089de-d2f6-4f94-8f18-89f9e74580b3'
-}); 
+});
 
 const userInfo = new UserInfo(
   {
@@ -100,31 +123,49 @@ const userInfo = new UserInfo(
     aboutSelector: '.profile__subtitle',
     avatarSelector: '.profile__avatar'
   },
-  api.getProfileData.bind(api), 
-  api.setProfileData.bind(api), 
+  api.getProfileData.bind(api),
+  api.setProfileData.bind(api),
   api.updateAvatar.bind(api)
+);
+
+const cardSection = new Section(
+  (item) => {
+    cardSection.addItem(
+      addPost(
+        item,
+        api,
+        popupViewImage,
+        userInfo,
+        popupDeletePost
+      )
+    );
+  },
+  selectorCardContainer
 );
 
 //Loading profile data & Create inital posts
 Promise.all([userInfo.getUserInfo(), api.getInitialCards()])
   .then((data) => {
     userInfo.setAllUserInfoLocal(data[0]);
-    //Добавить карточки на страницу
+    cardSection.renderItems(data[1]);
   })
   .catch((error) => {
     console.log('Ошибка: ' + error);
-  }); 
+  });
 
 
 //listener click open popup
 popupOpenButtonProfile.addEventListener('click', () => {
   inputProfileName.value = profileTitle.textContent;
   inputProfileCapture.value = profileSubTitle.textContent;
+  validatorFormProfile.prepareFormToOpen();
   popupProfile.open();
 });
 popupOpenButtonAddMesto.addEventListener('click', () => {
+  validatorFormAddMesto.prepareFormToOpen();
   popupAddMesto.open();
 });
 popupOpenButtonUpdateAvatar.addEventListener('click', () => {
+  validatorFormEditAvatar.prepareFormToOpen();
   popupEditAvatar.open();
 });

@@ -7,7 +7,7 @@ export const validationOption = {
   inputErrorClass: 'popup__item_error',
   errorClass: '.popup__item-error',
   errorClassActive: 'popup__item-error_active'
-}; 
+};
 
 //popup selector
 export const popupTypeMestoSelector = '.popup_type_mesto';
@@ -31,3 +31,4 @@ export const inputProfileCapture = document.querySelector('.popup__item_type_pro
 
 //other
 export const cardTemplateSelector = '#element';
+export const selectorCardContainer = '.elements';
