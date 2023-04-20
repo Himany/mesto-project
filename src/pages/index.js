@@ -154,7 +154,7 @@ Promise.all([userInfo.getUserInfo(), api.getInitialCards()])
   });
 
 
-//listener click open popup//
+//listener click open popup
 popupOpenButtonProfile.addEventListener('click', () => {
   inputProfileName.value = profileTitle.textContent;
   inputProfileCapture.value = profileSubTitle.textContent;
