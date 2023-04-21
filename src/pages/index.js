@@ -7,7 +7,7 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import Section from '../components/Section.js';
 import FormValidator from '../components/FormValidator';
 
-import { addPost, deletePost } from '../components/utils.js';
+import { addPost, deletePost } from '../utils/utils.js';
 import {
   validationOption,
   popupTypeMestoSelector,
@@ -23,7 +23,7 @@ import {
   inputProfileName,
   inputProfileCapture,
   selectorCardContainer
-} from '../components/constans.js';
+} from '../utils/constans.js';
 
 ////////////////////////////////////////////////////////////////////////////////////
 //submit function///////////////////////////////////////////////////////////////////
